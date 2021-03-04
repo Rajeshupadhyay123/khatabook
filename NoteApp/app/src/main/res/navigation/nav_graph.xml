@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.noteapp.fragment.ListFragment"
+        android:label="List Notes"
+        tools:layout="@layout/list_fragment">
+        <action
+            android:id="@+id/action_listFragment_to_addListFragment"
+            app:destination="@id/addListFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateListFrgament"
+            app:destination="@id/updateListFrgament" />
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addListFragment"
+        android:name="com.example.noteapp.fragment.AddListFragment"
+        android:label="Add Notes"
+        tools:layout="@layout/add_list_fragment">
+        <action
+            android:id="@+id/action_addListFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateListFrgament"
+        android:name="com.example.noteapp.fragment.UpdateListFrgament"
+        android:label="Update Note"
+        tools:layout="@layout/update_list_fragment">
+        <argument
+            android:name="user"
+            app:argType="com.example.noteapp.model.User" />
+        <action
+            android:id="@+id/action_updateListFrgament_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.example.noteapp.fragment.app2.TransactionFragment"
+        android:label="Transaction Home"
+        tools:layout="@layout/transaction_home" >
+        <action
+            android:id="@+id/action_transactionFragment_to_addCustomerFragment"
+            app:destination="@id/addCustomerFragment"
+            app:popUpTo="@id/transactionFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_transactionFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment" />
+    </fragment>
+    <action android:id="@+id/action_global_transactionFragment" app:destination="@id/transactionFragment" />
+    <fragment
+        android:id="@+id/addCustomerFragment"
+        android:name="com.example.noteapp.fragment.app2.AddCustomerFragment"
+        android:label="Add Customer Detail"
+        tools:layout="@layout/add_customer_fragment">
+        <action
+            android:id="@+id/action_addCustomerFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment"
+            app:popUpTo="@id/transactionFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetailFragment"
+        android:name="com.example.noteapp.fragment.app2.CustomerDetailFragment"
+        android:label="Customer Detail"
+        tools:layout="@layout/customer_detail_fragment">
+        <argument
+            android:name="customer"
+            app:argType="com.example.noteapp.model.Customer" />
+        <action
+            android:id="@+id/action_customerDetailFragment_to_gaveFragment"
+            app:destination="@id/gaveFragment" />
+        <action
+            android:id="@+id/action_customerDetailFragment_to_getFragment"
+            app:destination="@id/getFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/getFragment"
+        android:name="com.example.noteapp.fragment.app2.GetFragment"
+        android:label="Get Amount"
+        tools:layout="@layout/get_fragment" >
+        <argument
+            android:name="customer"
+            app:argType="com.example.noteapp.model.Customer" />
+        <action
+            android:id="@+id/action_getFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment"
+            app:popUpTo="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gaveFragment"
+        android:name="com.example.noteapp.fragment.app2.GaveFragment"
+        android:label="Gave Amount"
+        tools:layout="@layout/gave_fragment">
+        <argument
+            android:name="customer"
+            app:argType="com.example.noteapp.model.Customer" />
+        <action
+            android:id="@+id/action_gaveFragment_to_customerDetailFragment"
+            app:destination="@id/customerDetailFragment"
+            app:popUpTo="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.noteapp.fragment.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment2"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.noteapp.fragment.SignupFragment"
+        android:label="SignUp"
+        tools:layout="@layout/signup_fragment">
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.noteapp.fragment.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_emailFragment"
+            app:destination="@id/emailFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_nameFragment"
+            app:destination="@id/nameFragment" />
+    </fragment><action android:id="@+id/action_global_profileFragment" app:destination="@id/profileFragment"/>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.noteapp.fragment.AddressFragment"
+        android:label="address_fragment"
+        tools:layout="@layout/address_fragment" >
+        <action
+            android:id="@+id/action_addressFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="address"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.example.noteapp.fragment.EmailFragment"
+        android:label="email_fragment"
+        tools:layout="@layout/email_fragment" >
+        <action
+            android:id="@+id/action_emailFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/nameFragment"
+        android:name="com.example.noteapp.fragment.NameFragment"
+        android:label="name_fragment"
+        tools:layout="@layout/name_fragment" >
+        <action
+            android:id="@+id/action_nameFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.example.noteapp.fragment.PhoneFragment"
+        android:label="phone_fragment"
+        tools:layout="@layout/phone_fragment" >
+
+
+        <argument
+            android:name="phone"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_phoneFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

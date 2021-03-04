@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--
+        if we wan to move our nav bar element according to the navigation controller then
+        we have to set these id according to there respective fragment id present in the navigation graph
+    -->
+    <item
+        android:id="@+id/listFragment"
+        android:icon="@drawable/ic_note"
+        android:title="Note" />
+
+    <item
+        android:id="@+id/transactionFragment"
+        android:icon="@drawable/ic_trending_up"
+        android:title="Transaction" />
+
+</menu>
